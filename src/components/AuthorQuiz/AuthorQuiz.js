@@ -1,5 +1,6 @@
 import React from 'react';
-import './App.css';
+import '../AuthorQuiz/AuthorQuiz.css';
+import '../../style/bootstrap.min.css';
 
 function AuthorQuiz() {
 return (
