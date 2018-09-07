@@ -1,4 +1,4 @@
-//import React from 'react';
+import React from 'react';
 import { shuffle, sample } from 'underscore';
 import '../../../style/bootstrap.min.css';
 import './Turn.css';
@@ -19,3 +19,10 @@ export function getTurnData(authors) {
   };
 }
 
+export function Turn() {
+  return (
+    <div></div>
+  );
+}
+
+export default Turn;

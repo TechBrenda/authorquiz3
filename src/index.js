@@ -4,7 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom';
 import * as Redux from 'redux';
 import * as ReactRedux from 'react-redux';
 import './style/index.css';
-import AuthorQuiz from './components/AuthorQuiz/AuthorQuiz';
+import { App } from './components/AuthorQuiz/AuthorQuiz';
 import registerServiceWorker from './registerServiceWorker';
 import authors from './authors.json';
 import { getTurnData } from './components/AuthorQuiz/Turn/Turn';
@@ -29,7 +29,7 @@ let store = Redux.createStore(
 ReactDOM.render(
   <BrowserRouter>
     <ReactRedux.Provider store={store}>
-      <Route exact path="/" component={AuthorQuiz} />
+      <Route exact path="/" component={App} />
     </ReactRedux.Provider>
   </BrowserRouter>
   , document.getElementById('root'));
