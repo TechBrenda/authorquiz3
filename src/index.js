@@ -20,6 +20,8 @@ function reducer(
     case "ANSWER_SELECTED":
       const isCorrect = state.turnData.author.books.some((book) => book === action.answer);
       return Object.assign({}, state, { highlight: isCorrect ? "correct" : "wrong" });
+    case "CONTINUE":
+      return Object.assign({}, state, { highlight: "", turnData: getTurnData(state.authors) });
     default: return state;
   }
 }

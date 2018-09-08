@@ -1,18 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import '../AuthorQuiz/AuthorQuiz.css';
 import '../../style/bootstrap.min.css';
 import { Hero } from './Hero/Hero';
 import { Turn } from './Turn/Turn';
 import { Continue } from './Continue/Continue';
 import { Footer } from './Footer/Footer';
 
-function AuthorQuiz({turnData, highlight, onAnswerSelected}) {
+function AuthorQuiz({turnData, highlight, onAnswerSelected, onContinue}) {
   return (
     <div className="container-fluid">
       <Hero />
       <Turn {...turnData} highlight={highlight} onAnswerSelected={onAnswerSelected} />
-      <Continue />
+      <Continue show={highlight === "correct"} onContinue={onContinue} />
       <Footer />
     </div>
   );
@@ -27,7 +26,8 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return ({
-    onAnswerSelected: (answer) => {dispatch({ type: 'ANSWER_SELECTED', answer }); },
+    onAnswerSelected: (answer) => { dispatch({ type: 'ANSWER_SELECTED', answer }); },
+    onContinue: () => { dispatch({ type: 'CONTINUE' }); }
   });
 }
 
