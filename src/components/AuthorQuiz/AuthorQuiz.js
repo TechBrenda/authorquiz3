@@ -7,11 +7,11 @@ import { Turn } from './Turn/Turn';
 import { Continue } from './Continue/Continue';
 import { Footer } from './Footer/Footer';
 
-function AuthorQuiz() {
+function AuthorQuiz({turnData, highlight, onAnswerSelected}) {
   return (
     <div className="container-fluid">
       <Hero />
-      <Turn />
+      <Turn {...turnData} highlight={highlight} onAnswerSelected={onAnswerSelected} />
       <Continue />
       <Footer />
     </div>
@@ -20,13 +20,14 @@ function AuthorQuiz() {
 
 function mapStateToProps(state) {
   return({
-    
+    turnData: state.turnData,
+    highlight: state.highlight
   });
 }
 
 function mapDispatchToProps(dispatch) {
   return ({
-    
+    onAnswerSelected: (answer) => {dispatch({ type: 'ANSWER_SELECTED', answer }); },
   });
 }
 
