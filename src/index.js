@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import * as Redux from 'redux';
 import * as ReactRedux from 'react-redux';
 import './style/index.css';
-import { App } from './components/AuthorQuiz/AuthorQuiz';
-import { AddAuthor } from './components/AddAuthorForm/AddAuthorForm';
 import registerServiceWorker from './registerServiceWorker';
 import authors from './authors.json';
 import { getTurnData } from './components/AuthorQuiz/Turn/Turn';
+import { Routes } from './routes/Routes';
 
 function reducer(
   state = {
@@ -37,10 +36,7 @@ let store = Redux.createStore(
 ReactDOM.render(
   <BrowserRouter>
     <ReactRedux.Provider store={store}>
-      <React.Fragment>
-        <Route exact path="/" component={App} />
-        <Route path="/add" component={AddAuthor} />
-      </React.Fragment>
+      <Routes />
     </ReactRedux.Provider>
   </BrowserRouter>
   , document.getElementById('root'));
